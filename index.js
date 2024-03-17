@@ -34,11 +34,13 @@ app.post('/trackPackage/:id', async (req, res) => {
         data: `[{"number":"${id}"}]`
     };
     try {
+        console.log('called here')
         const addNumberResponse = await axios(Registeroptions);
 
         const response = await axios.request(options);
         res.status(200).send(response.data);
     } catch (error) {
+        console.log(error)
         res.status(400).send(error);
     }
 }
